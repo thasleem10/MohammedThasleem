@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Thasleem | Portfolio</title>
+    <meta name="description" content="Data Scientist, Graphic Designer, and Travel Consultant based in Chennai, India.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* CSS VARIABLES */
+        :root {
+            --bg-main: #0A0A0A;
+            --bg-card: #111111;
+            --bg-card-hover: #161616;
+            --accent: #f7d807;
+            --text-main: #FFFFFF;
+            --text-muted: #666666;
+            --border: #1a1a1a;
+            --font-display: 'Anton', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* UTILITY CLASSES */
+        .anton {
+            font-family: var(--font-display);
+        }
+
+        .inter {
+            font-family: var(--font-body);
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        /* Fade-in Animation Classes */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* TYPOGRAPHY */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .display-text {
+            font-family: var(--font-display);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- SECTION 1: NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 100;
+            transition: background 0.3s;
+        }
+
+        .nav-logo {
+            font-size: 1.8rem;
+            color: var(--text-main);
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: none;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        .nav-links a {
+            color: #888;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .hire-btn {
+            background: var(--accent);
+            color: var(--bg-main);
+            padding: 0.5rem 1.5rem;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .hire-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- SECTION 2: HERO --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 8rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 900px) {
+            .hero {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .badge {
+            background: var(--accent);
+            color: #000;
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            color: var(--accent);
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            line-height: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .hero-sub {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .role-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        .role-pill {
+            border: 1px solid #2a2a2a;
+            color: #aaa;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .role-pill:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-num {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--text-main);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 0.2rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 4rem;
+        }
+
+        @media (min-width: 900px) {
+            .hero-image {
+                margin-top: 0;
+                justify-content: flex-end;
+            }
+        }
+
+        .image-wrapper {
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 3/4;
+            background: transparent;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+            overflow: visible;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: bottom;
+            -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        }
+
+        .placeholder-text {
+            color: var(--accent);
+            font-size: 4rem;
+        }
+
+        /* --- SECTION 3: ABOUT STRIP --- */
+        .about-strip {
+            display: grid;
+            grid-template-columns: 1fr;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-main);
+        }
+
+        @media (min-width: 768px) {
+            .about-strip {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .about-col {
+            padding: 2.5rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        @media (min-width: 768px) {
+            .about-col {
+                border-bottom: none;
+                border-right: 1px solid var(--border);
+            }
+
+            .about-col:last-child {
+                border-right: none;
+            }
+        }
+
+        .about-col h3 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-col p {
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+
+        /* --- SHARED SECTION STYLES --- */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .section-label {
+            border-left: 2px solid var(--accent);
+            padding-left: 0.8rem;
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--text-main);
+            line-height: 1;
+        }
+
+        .view-all {
+            color: var(--accent);
+            font-size: 0.9rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .view-all:hover {
+            text-decoration: underline;
+        }
+
+        /* --- SECTION 4: PROJECTS --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid #1e1e1e;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            background: var(--bg-card-hover);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-num {
+            font-size: 40px;
+            color: #1d1d1d;
+            margin-bottom: 1.5rem;
+            line-height: 1;
+        }
+
+        .project-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .project-name a {
+            transition: color 0.3s;
+        }
+
+        .project-name a:hover {
+            color: var(--accent);
+        }
+
+        .project-desc {
+            color: #555;
+            font-size: 11px;
+            margin-bottom: 2rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tag {
+            color: var(--accent);
+            background: #120e00;
+            border: 1px solid #2a2200;
+            font-size: 9px;
+            padding: 0.3rem 0.6rem;
+            border-radius: 2px;
+        }
+
+        /* --- SECTION 5: CREATIVES --- */
+        .creatives-subtitle {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin-top: 1rem;
+            max-width: 600px;
+        }
+
+        .creatives-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .creatives-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .creative-tile {
+            background: var(--bg-card-hover);
+            border: 1px solid #1e1e1e;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .creative-tile:hover {
+            border-color: var(--accent);
+        }
+
+        .creative-tile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .creative-tile:hover img {
+            opacity: 1;
+        }
+
+        .creative-tile span {
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 500;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* --- SECTION 6: TRAVEL BANNER --- */
+        .travel-banner {
+            background: var(--accent);
+            padding: 5rem 2rem;
+            color: #0A0A0A;
+        }
+
+        .travel-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .travel-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .travel-eyebrow {
+            color: #7a6200;
+            font-size: 10px;
+            margin-bottom: 0.8rem;
+        }
+
+        .travel-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .travel-subtitle {
+            color: #5a4a00;
+            font-size: 11px;
+            margin-bottom: 2rem;
+            max-width: 400px;
+        }
+
+        .travel-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .travel-tag {
+            background: rgba(0, 0, 0, 0.1);
+            color: #0A0A0A;
+            font-size: 10px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        .travel-btn {
+            background: #0A0A0A;
+            color: var(--accent);
+            padding: 1.2rem 2.5rem;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+            white-space: nowrap;
+        }
+
+        .travel-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- SECTION 7: SKILLS --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .skill-block {
+            background: var(--bg-card);
+            border: 1px solid #1e1e1e;
+            padding: 2rem 1.5rem;
+            transition: border-color 0.3s;
+        }
+
+        .skill-block:hover {
+            border-color: #2a2a2a;
+        }
+
+        .skill-title {
+            color: var(--accent);
+            font-size: 10px;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .skill-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .skill-pill {
+            background: #161616;
+            color: #666;
+            border: 1px solid #1e1e1e;
+            font-size: 9px;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        /* --- SECTION 8: CONTACT --- */
+        .contact-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto 5rem;
+            background: var(--bg-card);
+            border: 1px solid #1e1e1e;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .contact-left h2 {
+            color: var(--accent);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .contact-left p {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .contact-btn {
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            border: 1px solid #2a2a2a;
+            color: var(--text-main);
+            transition: all 0.3s;
+        }
+
+        .contact-btn.primary {
+            background: var(--accent);
+            color: #0A0A0A;
+            border: none;
+        }
+
+        .contact-btn:not(.primary):hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .contact-right {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .contact-right {
+                text-align: right;
+            }
+        }
+
+        .contact-info-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-info-label {
+            color: #555;
+            font-size: 11px;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info-value {
+            color: var(--text-main);
+            font-size: 14px;
+        }
+
+        /* --- SECTION 9: FOOTER --- */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            font-size: 12px;
+            color: #666;
+            background: var(--bg-main);
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 1.5rem 28px;
+            }
+        }
+
+        .footer-right span.travel {
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SECTION 1 — NAVIGATION -->
+    <nav id="navbar">
+        <div class="nav-logo display-text">MT<span>.</span></div>
+        <div class="nav-links inter">
+            <a href="#projects">Work</a>
+            <a href="#creatives">Design</a>
+            <a href="#travel">Travel</a>
+            <a href="#about">About</a>
+        </div>
+        <button class="hire-btn display-text uppercase" onclick="window.location.href='#contact'">HIRE ME</button>
+    </nav>
+
+    <!-- SECTION 2 — HERO -->
+    <section class="hero hidden" id="about">
+        <div class="hero-text">
+            <div class="badge display-text uppercase">DATA · DESIGN · TRAVEL</div>
+            <h1 class="display-text uppercase">MOHAMMED<br>THASLEEM</h1>
+            <p class="hero-sub inter">Data Scientist & Analyst · Graphic Designer · Travel Consultant. Based in Chennai,
+                India.</p>
+
+            <div class="role-pills inter">
+                <span class="role-pill">Data Science</span>
+                <span class="role-pill">Machine Learning</span>
+                <span class="role-pill">Graphic Design</span>
+                <span class="role-pill">Travel Consulting</span>
+                <span class="role-pill">Power BI</span>
+                <span class="role-pill">Python</span>
+            </div>
+
+            <div class="stats-row inter">
+                <div class="stat-item">
+                    <span class="stat-num">5+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">4</span>
+                    <span class="stat-label">ML Projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">3</span>
+                    <span class="stat-label">Active Roles</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">3</span>
+                    <span class="stat-label">Languages</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="image-wrapper">
+                <!-- User to replace src="" with actual image file -->
+                <img src="Images/mohammed.jpeg" alt="Mohammed Thasleem">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3 — ABOUT STRIP -->
+    <section class="about-strip hidden">
+        <div class="about-col">
+            <h3 class="display-text uppercase">📊 DATA ANALYST</h3>
+            <p class="inter">Expresso Life Solutions · Adhvan Group, Chennai · 2025–Present</p>
+        </div>
+        <div class="about-col">
+            <h3 class="display-text uppercase">✈️ TRAVEL CONSULTANT</h3>
+            <p class="inter">Adhvan Crafted Journeys · US, UK & Schengen Visa Advisory</p>
+        </div>
+        <div class="about-col">
+            <h3 class="display-text uppercase">🤖 AI CONSULTANT</h3>
+            <p class="inter">Rubixe AI Solutions · ML Forecasting · 2025</p>
+        </div>
+    </section>
+
+    <!-- SECTION 4 — PROJECTS -->
+    <section class="section hidden" id="projects">
+        <div class="section-header">
+            <div>
+                <div class="section-label display-text uppercase">SELECTED WORK</div>
+                <h2 class="section-title display-text uppercase">PROJECTS</h2>
+            </div>
+            <a href="#projects" class="view-all inter">View All →</a>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Project 01 -->
+            <div class="project-card">
+                <div class="project-num display-text">01</div>
+                <h3 class="project-name display-text uppercase"><a href="https://github.com/thasleem10"
+                        target="_blank">Flight Price Prediction</a></h3>
+                <p class="project-desc inter">ML regression model to estimate airline ticket prices with feature
+                    engineering.</p>
+                <div class="project-tags inter">
+                    <span class="project-tag uppercase">Python</span>
+                    <span class="project-tag uppercase">ML</span>
+                    <span class="project-tag uppercase">Regression</span>
+                </div>
+            </div>
+            <!-- Project 02 -->
+            <div class="project-card">
+                <div class="project-num display-text">02</div>
+                <h3 class="project-name display-text uppercase"><a href="https://github.com/thasleem10"
+                        target="_blank">Rice Leaf Disease Detection</a></h3>
+                <p class="project-desc inter">Deep learning image classification to identify rice plant diseases.</p>
+                <div class="project-tags inter">
+                    <span class="project-tag uppercase">CNN</span>
+                    <span class="project-tag uppercase">TensorFlow</span>
+                    <span class="project-tag uppercase">Computer Vision</span>
+                </div>
+            </div>
+            <!-- Project 03 -->
+            <div class="project-card">
+                <div class="project-num display-text">03</div>
+                <h3 class="project-name display-text uppercase"><a href="https://github.com/thasleem10"
+                        target="_blank">FIFA 2020 Data Analysis</a></h3>
+                <p class="project-desc inter">EDA and visualization of FIFA player datasets for performance insights.
+                </p>
+                <div class="project-tags inter">
+                    <span class="project-tag uppercase">Python</span>
+                    <span class="project-tag uppercase">EDA</span>
+                    <span class="project-tag uppercase">Tableau</span>
+                </div>
+            </div>
+            <!-- Project 04 -->
+            <div class="project-card">
+                <div class="project-num display-text">04</div>
+                <h3 class="project-name display-text uppercase"><a href="https://github.com/thasleem10"
+                        target="_blank">Portuguese Banking Analysis</a></h3>
+                <p class="project-desc inter">Predictive modeling to optimize direct marketing campaign outcomes.</p>
+                <div class="project-tags inter">
+                    <span class="project-tag uppercase">SQL</span>
+                    <span class="project-tag uppercase">Predictive Analytics</span>
+                    <span class="project-tag uppercase">Power BI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4.5 — WEBSITE DESIGNS -->
+    <section class="section hidden" id="websites">
+        <div class="section-header">
+            <div>
+                <div class="section-label display-text uppercase">WEB PORTFOLIO</div>
+                <h2 class="section-title display-text uppercase">WEBSITE DESIGNS</h2>
+            </div>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Website 01 -->
+            <div class="project-card">
+                <img src="Images/rohini.png" alt="rohinisilverscreen"
+                    style="width: 100%; height: 160px; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid #1e1e1e;">
+                <div class="project-num display-text">01</div>
+                <h3 class="project-name display-text uppercase"><a href="https://rohinisilverscreen.netlify.app/"
+                        target="_blank">rohinisilverscreen</a></h3>
+                <p class="project-desc inter">Modern online shopping experience with seamless checkout.</p>
+                <div class="project-tags inter">
+                    <span class="project-tag uppercase">Live Link</span>
+                    <span class="project-tag uppercase">UI/UX</span>
+                </div>
+            </div>
+            <!-- Website 02 -->
+            <div class="project-card">
+                <img src="https://placehold.co/600x300/161616/f7d807?text=Web+Design+2" alt="Buvanagirihandlooms"
+                    style="width: 100%; height: 160px; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid #1e1e1e;">
+                <div class="project-num display-text">02</div>
+                <h3 class="project-name display-text uppercase"><a href="https://buvanagirihandlooms.netlify.app/"
+                        target="_blank">Buvanagirihandlooms</a></h3>
+                <p class="project-desc inter">Professional landing page built with HTML, CSS, and JS.</p>
+                <div class="project-tags inter">
+                    <span class="project-tag uppercase">GitHub</span>
+                    <span class="project-tag uppercase">Frontend</span>
+                </div>
+            </div>
+            <!-- Website 03 -->
+            <div class="project-card">
+                <img src="https://placehold.co/600x300/161616/f7d807?text=Web+Design+2" alt="AbhiDownload"
+                    style="width: 100%; height: 160px; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid #1e1e1e;">
+                <div class="project-num display-text">02</div>
+                <h3 class="project-name display-text uppercase"><a href="https://buvanagirihandlooms.netlify.app/"
+                        target="_blank">AbhiDownload</a></h3>
+                <p class="project-desc inter">Professional landing page built with HTML, CSS, and JS.</p>
+                <div class="project-tags inter">
+                    <span class="project-tag uppercase">GitHub</span>
+                    <span class="project-tag uppercase">Frontend</span>
+                </div>
+            </div>
+            <!-- Website 02 -->
+            <div class="project-card">
+                <img src="https://placehold.co/600x300/161616/f7d807?text=Web+Design+2" alt="Buvanagirihandlooms"
+                    style="width: 100%; height: 160px; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid #1e1e1e;">
+                <div class="project-num display-text">02</div>
+                <h3 class="project-name display-text uppercase"><a href="https://buvanagirihandlooms.netlify.app/"
+                        target="_blank">The Sports Herald</a></h3>
+                <p class="project-desc inter">Professional landing page built with HTML, CSS, and JS.</p>
+                <div class="project-tags inter">
+                    <span class="project-tag uppercase">GitHub</span>
+                    <span class="project-tag uppercase">Frontend</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5 — CREATIVES -->
+    <section class="section hidden" id="creatives">
+        <div class="section-header" style="margin-bottom: 1rem;">
+            <div>
+                <div class="section-label display-text uppercase">VISUAL PORTFOLIO</div>
+                <h2 class="section-title display-text uppercase">CREATIVES</h2>
+                <p class="creatives-subtitle inter">Graphic design work, brand assets, social media creatives — from Box
+                    Brownie AU, Cross Digital India, and personal projects.</p>
+            </div>
+        </div>
+
+        <div class="creatives-grid inter">
+            <!-- User to replace src="" with actual image paths -->
+            <div class="creative-tile">
+                <img src="https://placehold.co/400x400/161616/555555?text=Brand+Design" alt="Brand Design"
+                    onerror="this.style.display='none';">
+                <span>Brand Design</span>
+            </div>
+            <div class="creative-tile">
+                <img src="https://placehold.co/400x400/161616/555555?text=Photo+Editing" alt="Photo Editing"
+                    onerror="this.style.display='none';">
+                <span>Photo Editing</span>
+            </div>
+            <div class="creative-tile">
+                <img src="https://placehold.co/400x400/161616/555555?text=BI+Dashboards" alt="BI Dashboards"
+                    onerror="this.style.display='none';">
+                <span>BI Dashboards</span>
+            </div>
+            <div class="creative-tile">
+                <img src="https://placehold.co/400x400/161616/555555?text=Social+Media" alt="Social Media"
+                    onerror="this.style.display='none';">
+                <span>Social Media</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6 — TRAVEL BANNER -->
+    <section class="travel-banner hidden" id="travel">
+        <div class="travel-content">
+            <div class="travel-text">
+                <div class="travel-eyebrow display-text uppercase">TRAVEL CONSULTING</div>
+                <h2 class="travel-title display-text uppercase">ADHVAN CRAFTED JOURNEYS</h2>
+                <p class="travel-subtitle inter">US · UK · Schengen visa advisory. Custom packages & itineraries.</p>
+                <div class="travel-tags inter">
+                    <span class="travel-tag uppercase">Domestic</span>
+                    <span class="travel-tag uppercase">International</span>
+                    <span class="travel-tag uppercase">Visa</span>
+                    <span class="travel-tag uppercase">Corporate</span>
+                </div>
+            </div>
+            <button class="travel-btn display-text uppercase"
+                onclick="window.location.href='mailto:thasleemsf@gmail.com'">ENQUIRE →</button>
+        </div>
+    </section>
+
+    <!-- SECTION 7 — SKILLS -->
+    <section class="section hidden" id="skills">
+        <div class="section-header">
+            <div>
+                <div class="section-label display-text uppercase">CAPABILITIES</div>
+                <h2 class="section-title display-text uppercase">SKILLS</h2>
+            </div>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-block">
+                <div class="skill-title display-text uppercase">DATA & ML</div>
+                <div class="skill-pills inter">
+                    <span class="skill-pill">Python</span>
+                    <span class="skill-pill">R</span>
+                    <span class="skill-pill">SQL</span>
+                    <span class="skill-pill">MongoDB</span>
+                    <span class="skill-pill">Machine Learning</span>
+                    <span class="skill-pill">Predictive Analytics</span>
+                    <span class="skill-pill">AI Prompt Engineering</span>
+                </div>
+            </div>
+            <div class="skill-block">
+                <div class="skill-title display-text uppercase">BI & VISUALIZATION</div>
+                <div class="skill-pills inter">
+                    <span class="skill-pill">Power BI</span>
+                    <span class="skill-pill">Tableau</span>
+                    <span class="skill-pill">Excel</span>
+                    <span class="skill-pill">ETL</span>
+                    <span class="skill-pill">Big Data</span>
+                </div>
+            </div>
+            <div class="skill-block">
+                <div class="skill-title display-text uppercase">CREATIVE & MARKETING</div>
+                <div class="skill-pills inter">
+                    <span class="skill-pill">Adobe Photoshop</span>
+                    <span class="skill-pill">Canva</span>
+                    <span class="skill-pill">Meta Ads</span>
+                    <span class="skill-pill">SEO</span>
+                    <span class="skill-pill">Content Creation</span>
+                    <span class="skill-pill">Brand Identity</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8 — CONTACT -->
+    <section class="contact-section hidden" id="contact">
+        <div class="contact-container">
+            <div class="contact-left">
+                <h2 class="display-text uppercase">LET'S CONNECT</h2>
+                <p class="inter">Open to data projects, design work & travel enquiries.</p>
+                <div class="contact-buttons">
+                    <a href="mailto:thasleemsf@gmail.com"
+                        class="contact-btn primary display-text uppercase">thasleemsf@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/mohammed-thasleem-132a27342" target="_blank"
+                        class="contact-btn display-text uppercase">LinkedIn</a>
+                    <a href="https://github.com/thasleem10" target="_blank"
+                        class="contact-btn display-text uppercase">GitHub</a>
+                    <a href="tel:+919961806224" class="contact-btn display-text uppercase">+91 9961806224</a>
+                </div>
+            </div>
+            <div class="contact-right inter">
+                <div class="contact-info-item">
+                    <div class="contact-info-label">Based in</div>
+                    <div class="contact-info-value">Chennai, India</div>
+                </div>
+                <div class="contact-info-item">
+                    <div class="contact-info-label">Available for</div>
+                    <div class="contact-info-value">Freelance & Full-time</div>
+                </div>
+                <div class="contact-info-item">
+                    <div class="contact-info-label">Languages</div>
+                    <div class="contact-info-value">EN · TA · ML · HI</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9 — FOOTER -->
+    <footer>
+        <div class="inter">© 2025 Mohammed Thasleem</div>
+        <div class="inter">Chennai · India</div>
+        <div class="footer-right display-text uppercase">
+            Data · Design · <span class="travel">Travel</span>
+        </div>
+    </footer>
+
+    <!-- JS FOR INTERACTIONS & ANIMATIONS -->
+    <script>
+        // 1. Navbar Scroll Blur Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.85)';
+                navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.5)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.7)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // 2. Intersection Observer for Fade-in on Scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+</body>
+
+</html>
