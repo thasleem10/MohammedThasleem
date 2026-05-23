@@ -450,6 +450,149 @@
             border-radius: 2px;
         }
 
+        /* --- PROJECTS YELLOW BOX OVERRIDES --- */
+        #projects .project-card {
+            display: flex;
+            align-items: stretch;
+            gap: 1.5rem;
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+
+        #projects .project-card::before {
+            display: none;
+        }
+
+        #projects .project-card:hover {
+            background: transparent;
+        }
+
+        #projects .project-num {
+            font-size: clamp(3.5rem, 5vw, 5rem);
+            color: var(--text-main);
+            margin-bottom: 0;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            width: 70px;
+        }
+
+        #projects .project-content {
+            background: var(--accent);
+            padding: 1.5rem 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        #projects .project-content:hover {
+            transform: scale(1.02);
+        }
+
+        #projects .project-name {
+            color: #000;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-display);
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+
+        #projects .project-tag {
+            color: #000;
+            background: transparent;
+            border: 1px solid #000;
+            font-weight: 600;
+        }
+
+        /* --- WEBSITES YELLOW BOX OVERRIDES --- */
+        #websites .website-card {
+            background: var(--accent);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-decoration: none;
+            transition: border-color 0.3s ease, transform 0.2s;
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        #websites .website-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            height: 4px;
+            background: #ffffff;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.1s ease-in;
+        }
+
+        #websites .website-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffffff;
+        }
+
+        #websites .website-card:hover::before {
+            transform: scaleX(1);
+            transition: transform 0.4s ease-out;
+        }
+
+        #websites .website-image-container {
+            background: #000;
+            width: 100%;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid #000;
+        }
+
+        #websites .website-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        #websites .website-card:hover .website-image-container img {
+            opacity: 1;
+        }
+
+        #websites .website-title-row {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        #websites .website-num {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #000;
+            font-family: var(--font-display);
+            line-height: 1;
+        }
+
+        #websites .website-name {
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            color: #000;
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            line-height: 1;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+
         /* --- SECTION 5: CREATIVES --- */
         .creatives-subtitle {
             color: var(--text-muted);
@@ -838,53 +981,68 @@
             <!-- Project 01 -->
             <div class="project-card">
                 <div class="project-num display-text">01</div>
-                <h3 class="project-name display-text uppercase"><a href="https://github.com/thasleem10"
-                        target="_blank">Flight Price Prediction</a></h3>
-                <p class="project-desc inter">ML regression model to estimate airline ticket prices with feature
-                    engineering.</p>
-                <div class="project-tags inter">
-                    <span class="project-tag uppercase">Python</span>
-                    <span class="project-tag uppercase">ML</span>
-                    <span class="project-tag uppercase">Regression</span>
-                </div>
+                <a href="https://github.com/thasleem10/Flight-Fare-Prediction-Project.git" target="_blank"
+                    class="project-content">
+                    <div class="project-name display-text uppercase">FLIGHT FARE PREDICTION</div>
+                    <div class="project-tags inter">
+                        <span class="project-tag uppercase">Regression</span>
+                        <span class="project-tag uppercase">Random Forest Regressor</span>
+                        <span class="project-tag uppercase">XGBoost</span>
+                    </div>
+                </a>
             </div>
             <!-- Project 02 -->
             <div class="project-card">
                 <div class="project-num display-text">02</div>
-                <h3 class="project-name display-text uppercase"><a href="https://github.com/thasleem10"
-                        target="_blank">Rice Leaf Disease Detection</a></h3>
-                <p class="project-desc inter">Deep learning image classification to identify rice plant diseases.</p>
-                <div class="project-tags inter">
-                    <span class="project-tag uppercase">CNN</span>
-                    <span class="project-tag uppercase">TensorFlow</span>
-                    <span class="project-tag uppercase">Computer Vision</span>
-                </div>
+                <a href="https://github.com/thasleem10/Rice-Leaf-Disease.git" target="_blank" class="project-content">
+                    <div class="project-name display-text uppercase">Rice Leaf Disease</div>
+                    <div class="project-tags inter">
+                        <span class="project-tag uppercase">Convolutional Neural Network (CNN)</span>
+                        <span class="project-tag uppercase">Deep Learning</span>
+                        <span class="project-tag uppercase">TensorFlow</span>
+                        <span class="project-tag uppercase">Keras</span>
+                    </div>
+                </a>
             </div>
             <!-- Project 03 -->
             <div class="project-card">
                 <div class="project-num display-text">03</div>
-                <h3 class="project-name display-text uppercase"><a href="https://github.com/thasleem10"
-                        target="_blank">FIFA 2020 Data Analysis</a></h3>
-                <p class="project-desc inter">EDA and visualization of FIFA player datasets for performance insights.
-                </p>
-                <div class="project-tags inter">
-                    <span class="project-tag uppercase">Python</span>
-                    <span class="project-tag uppercase">EDA</span>
-                    <span class="project-tag uppercase">Tableau</span>
-                </div>
+                <a href="https://github.com/thasleem10/FIFA-Data-Prediction-Project.git" target="_blank"
+                    class="project-content">
+                    <div class="project-name display-text uppercase">FIFA Data Prediction Project</div>
+                    <div class="project-tags inter">
+                        <span class="project-tag uppercase">Data Visualization</span>
+                        <span class="project-tag uppercase">Statistical Analysis</span>
+                        <span class="project-tag uppercase">Tableau</span>
+                    </div>
+                </a>
             </div>
             <!-- Project 04 -->
             <div class="project-card">
                 <div class="project-num display-text">04</div>
-                <h3 class="project-name display-text uppercase"><a href="https://github.com/thasleem10"
-                        target="_blank">Portuguese Banking Analysis</a></h3>
-                <p class="project-desc inter">Predictive modeling to optimize direct marketing campaign outcomes.</p>
-                <div class="project-tags inter">
-                    <span class="project-tag uppercase">SQL</span>
-                    <span class="project-tag uppercase">Predictive Analytics</span>
-                    <span class="project-tag uppercase">Power BI</span>
-                </div>
+                <a href="https://github.com/thasleem10/Portuguese-Banking-Project.git" target="_blank"
+                    class="project-content">
+                    <div class="project-name display-text uppercase">Portuguese Banking Project</div>
+                    <div class="project-tags inter">
+                        <span class="project-tag uppercase">Logistic Regression</span>
+                        <span class="project-tag uppercase">Decision Tree</span>
+                        <span class="project-tag uppercase">Random Forest</span>
+                    </div>
+                </a>
             </div>
+            <!-- Project 05 -->
+            <div class="project-card">
+                <div class="project-num display-text">05</div>
+                <a href="https://github.com/thasleem10/Forecasting-Spare-Parts-Inventory_Project.git" target="_blank"
+                    class="project-content">
+                    <div class="project-name display-text uppercase">Forecasting Spare Parts Inventory</div>
+                    <div class="project-tags inter">
+                        <span class="project-tag uppercase">Time Series Forecasting</span>
+                        <span class="project-tag uppercase">Forecasting Models</span>
+                    </div>
+                </a>
+            </div>
+
         </div>
     </section>
 
@@ -899,57 +1057,45 @@
 
         <div class="projects-grid">
             <!-- Website 01 -->
-            <div class="project-card">
-                <img src="Images/rohini.png" alt="rohinisilverscreen"
-                    style="width: 100%; height: 160px; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid #1e1e1e;">
-                <div class="project-num display-text">01</div>
-                <h3 class="project-name display-text uppercase"><a href="https://rohinisilverscreen.netlify.app/"
-                        target="_blank">rohinisilverscreen</a></h3>
-                <p class="project-desc inter">Modern online shopping experience with seamless checkout.</p>
-                <div class="project-tags inter">
-                    <span class="project-tag uppercase">Live Link</span>
-                    <span class="project-tag uppercase">UI/UX</span>
+            <a href="https://thesportsherald.netlify.app/" target="_blank" class="website-card">
+                <div class="website-image-container">
+                    <img src="Images/TSH.jpg" alt="Placeholder">
                 </div>
-            </div>
+                <div class="website-title-row">
+                    <div class="website-num">01</div>
+                    <div class="website-name">THE SPORTS HERALD</div>
+                </div>
+            </a>
             <!-- Website 02 -->
-            <div class="project-card">
-                <img src="https://placehold.co/600x300/161616/f7d807?text=Web+Design+2" alt="Buvanagirihandlooms"
-                    style="width: 100%; height: 160px; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid #1e1e1e;">
-                <div class="project-num display-text">02</div>
-                <h3 class="project-name display-text uppercase"><a href="https://buvanagirihandlooms.netlify.app/"
-                        target="_blank">Buvanagirihandlooms</a></h3>
-                <p class="project-desc inter">Professional landing page built with HTML, CSS, and JS.</p>
-                <div class="project-tags inter">
-                    <span class="project-tag uppercase">GitHub</span>
-                    <span class="project-tag uppercase">Frontend</span>
+            <a href="https://abhidownload.onrender.com/" target="_blank" class="website-card">
+                <div class="website-image-container">
+                    <img src="Images/abhidownload.jpg" alt="Placeholder">
                 </div>
-            </div>
+                <div class="website-title-row">
+                    <div class="website-num">02</div>
+                    <div class="website-name">ABHI DOWNLOAD</div>
+                </div>
+            </a>
             <!-- Website 03 -->
-            <div class="project-card">
-                <img src="https://placehold.co/600x300/161616/f7d807?text=Web+Design+2" alt="AbhiDownload"
-                    style="width: 100%; height: 160px; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid #1e1e1e;">
-                <div class="project-num display-text">02</div>
-                <h3 class="project-name display-text uppercase"><a href="https://buvanagirihandlooms.netlify.app/"
-                        target="_blank">AbhiDownload</a></h3>
-                <p class="project-desc inter">Professional landing page built with HTML, CSS, and JS.</p>
-                <div class="project-tags inter">
-                    <span class="project-tag uppercase">GitHub</span>
-                    <span class="project-tag uppercase">Frontend</span>
+            <a href="https://office-attendance-7pka.onrender.com/" target="_blank" class="website-card">
+                <div class="website-image-container">
+                    <img src="Images/office.jpg" alt="Placeholder">
                 </div>
-            </div>
-            <!-- Website 02 -->
-            <div class="project-card">
-                <img src="https://placehold.co/600x300/161616/f7d807?text=Web+Design+2" alt="Buvanagirihandlooms"
-                    style="width: 100%; height: 160px; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid #1e1e1e;">
-                <div class="project-num display-text">02</div>
-                <h3 class="project-name display-text uppercase"><a href="https://buvanagirihandlooms.netlify.app/"
-                        target="_blank">The Sports Herald</a></h3>
-                <p class="project-desc inter">Professional landing page built with HTML, CSS, and JS.</p>
-                <div class="project-tags inter">
-                    <span class="project-tag uppercase">GitHub</span>
-                    <span class="project-tag uppercase">Frontend</span>
+                <div class="website-title-row">
+                    <div class="website-num">03</div>
+                    <div class="website-name">OFFICE ATTENDANCE</div>
                 </div>
-            </div>
+            </a>
+            <!-- Website 04 -->
+            <a href="https://buvanagirihandlooms.netlify.app/" target="_blank" class="website-card">
+                <div class="website-image-container">
+                    <img src="Images/Buva.jpg" alt="Placeholder">
+                </div>
+                <div class="website-title-row">
+                    <div class="website-num">04</div>
+                    <div class="website-name">BUVANAGIRI HANDLOOMS</div>
+                </div>
+            </a>
         </div>
     </section>
 
