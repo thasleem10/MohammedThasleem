@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expresso Life Solutions Pvt Ltd - Creatives</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0A0A0A;
+            --accent: #f7d807;
+            --text-main: #FFFFFF;
+            --font-display: 'Anton', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #222;
+            padding-bottom: 1rem;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            margin: 0;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            text-transform: uppercase;
+        }
+
+        .back-btn {
+            background: var(--accent);
+            color: #000;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            transition: transform 0.2s;
+            white-space: nowrap;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            cursor: pointer;
+            overflow: hidden;
+            border: 1px solid #222;
+            transition: border-color 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--accent);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox Styles */
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        #lightbox.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--accent);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 3rem;
+            cursor: pointer;
+            font-family: var(--font-body);
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>EXPRESSO LIFE SOLUTIONS PVT LTD</h1>
+        <a href="index.html#creatives" class="back-btn">Back to Home</a>
+    </div>
+
+    <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('https://placehold.co/800x800/161616/f7d807?text=Expresso+1')">
+            <img src="Images/expresso.jpg" alt="Creative 1">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('https://placehold.co/800x800/161616/f7d807?text=Expresso+2')">
+            <img src="Images/expresso (1).jpg" alt="Creative 2">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('https://placehold.co/800x800/161616/f7d807?text=Expresso+3')">
+            <img src="Images/expresso (2).jpg" alt="Creative 3">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('https://placehold.co/800x800/161616/f7d807?text=Expresso+4')">
+            <img src="Images/expresso (3).jpg" alt="Creative 4">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('https://placehold.co/800x800/161616/f7d807?text=Expresso+5')">
+            <img src="Images/expresso (4).jpg" alt="Creative 5">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('https://placehold.co/800x800/161616/f7d807?text=Expresso+6')">
+            <img src="Images/expresso (5).jpg" alt="Creative 6">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('https://placehold.co/800x800/161616/f7d807?text=Expresso+7')">
+            <img src="Images/expresso (6).jpg" alt="Creative 7">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('https://placehold.co/800x800/161616/f7d807?text=Expresso+8')">
+            <img src="Images/expresso (7).jpg" alt="Creative 8">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('https://placehold.co/800x800/161616/f7d807?text=Expresso+9')">
+            <img src="Images/expresso (8).jpg" alt="Creative 9">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('https://placehold.co/800x800/161616/f7d807?text=Expresso+10')">
+            <img src="Images/Expresso (9).jpg" alt="Creative 10">
+        </div>
+    </div>
+
+    <div id="lightbox" onclick="closeLightbox(event)">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Full view">
+    </div>
+
+    <script>
+        // Automatically bind click events to all gallery items
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            // Remove hardcoded inline onclicks so they don't interfere
+            item.removeAttribute('onclick');
+
+            item.addEventListener('click', function () {
+                // Get the src of the image inside this specific tile
+                const src = this.querySelector('img').src;
+                document.getElementById('lightbox-img').src = src;
+                document.getElementById('lightbox').classList.add('active');
+            });
+        });
+
+        function closeLightbox(event) {
+            if (event.target.tagName !== 'IMG') {
+                document.getElementById('lightbox').classList.remove('active');
+            }
+        }
+    </script>
+</body>
+
+</html>

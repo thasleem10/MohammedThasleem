@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Thasleem | Portfolio</title>
     <meta name="description" content="Data Scientist, Graphic Designer, and Travel Consultant based in Chennai, India.">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A0A0A' rx='20'/%3E%3Ctext x='50' y='72' font-family='Anton, Impact, sans-serif' font-size='55' fill='%23FFFFFF' text-anchor='middle' letter-spacing='0.5'%3EMT%3Ctspan fill='%23f7d807'%3E.%3C/tspan%3E%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A0A0A' rx='20'/%3E%3Ctext x='50' y='72' font-family='Anton, Impact, sans-serif' font-size='55' fill='%23FFFFFF' text-anchor='middle' letter-spacing='0.5'%3EMT%3Ctspan fill='%23f7d807'%3E.%3C/tspan%3E%3C/text%3E%3C/svg%3E"
+        type="image/svg+xml">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -615,45 +617,66 @@
             }
         }
 
-        .creative-tile {
-            background: var(--bg-card-hover);
-            border: 1px solid #1e1e1e;
-            aspect-ratio: 1;
+        .creative-card {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: border-color 0.3s;
-            cursor: pointer;
-            position: relative;
+            flex-direction: column;
+            background: #1a1a1a;
+            border: 1px solid #1e1e1e;
+            transition: transform 0.3s, border-color 0.3s;
+            text-decoration: none;
             overflow: hidden;
+            aspect-ratio: 3/4;
         }
 
-        .creative-tile:hover {
+        .creative-card:hover {
+            transform: translateY(-5px);
             border-color: var(--accent);
         }
 
-        .creative-tile img {
+        .creative-img-wrapper {
+            flex: 1;
+            width: 100%;
+            position: relative;
+            background: #111;
+            overflow: hidden;
+        }
+
+        .creative-img-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            opacity: 0.5;
-            transition: opacity 0.3s;
+            opacity: 0.7;
+            transition: opacity 0.3s, transform 0.5s;
         }
 
-        .creative-tile:hover img {
+        .creative-card:hover .creative-img-wrapper img {
             opacity: 1;
+            transform: scale(1.05);
         }
 
-        .creative-tile span {
-            color: var(--text-muted);
-            font-size: 12px;
+        .creative-info {
+            background: var(--accent);
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0.3rem;
+            min-height: 80px;
+        }
+
+        .creative-title {
+            color: #0A0A0A;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            line-height: 1.1;
+            margin: 0;
+        }
+
+        .creative-link {
+            color: #222;
+            font-size: 13px;
             font-weight: 500;
-            z-index: 2;
-            position: relative;
         }
 
         /* --- SECTION 6: TRAVEL BANNER --- */
@@ -888,6 +911,12 @@
             }
         }
 
+        .footer-right span {
+            transition: color 0.3s ease;
+        }
+
+        .footer-right span.data,
+        .footer-right span.design,
         .footer-right span.travel {
             color: var(--accent);
         }
@@ -902,10 +931,9 @@
         <div class="nav-links inter">
             <a href="#projects">Work</a>
             <a href="#creatives">Design</a>
-            <a href="#travel">Travel</a>
             <a href="#about">About</a>
         </div>
-        <button class="hire-btn display-text uppercase" onclick="window.location.href='#contact'">HIRE ME</button>
+        <button class="hire-btn display-text uppercase" onclick="window.location.href='#contact'">Contact ME</button>
     </nav>
 
     <!-- SECTION 2 — HERO -->
@@ -963,8 +991,8 @@
             <p class="inter">Adhvan Crafted Journeys · US, UK & Schengen Visa Advisory</p>
         </div>
         <div class="about-col">
-            <h3 class="display-text uppercase">🤖 AI CONSULTANT</h3>
-            <p class="inter">Rubixe AI Solutions · ML Forecasting · 2025</p>
+            <h3 class="display-text uppercase">🎨Graphic Designer</h3>
+            <p class="inter">Box Brownie, Australia · 2020-2024</p>
         </div>
     </section>
 
@@ -1088,13 +1116,13 @@
                 </div>
             </a>
             <!-- Website 04 -->
-            <a href="https://buvanagirihandlooms.netlify.app/" target="_blank" class="website-card">
+            <a href="https://rohinisilverscreen.netlify.app/#" target="_blank" class="website-card">
                 <div class="website-image-container">
-                    <img src="Images/Buva.jpg" alt="Placeholder">
+                    <img src="Images/rohini.png" Placeholder">
                 </div>
                 <div class="website-title-row">
                     <div class="website-num">04</div>
-                    <div class="website-name">BUVANAGIRI HANDLOOMS</div>
+                    <div class="website-name">rohini silver screens</div>
                 </div>
             </a>
         </div>
@@ -1106,54 +1134,54 @@
             <div>
                 <div class="section-label display-text uppercase">VISUAL PORTFOLIO</div>
                 <h2 class="section-title display-text uppercase">CREATIVES</h2>
-                <p class="creatives-subtitle inter">Graphic design work, brand assets, social media creatives — from Box
-                    Brownie AU, Cross Digital India, and personal projects.</p>
+                <p class="creatives-subtitle inter">Graphic design work, brand assets, social media creatives
+                </p>
             </div>
         </div>
 
-        <div class="creatives-grid inter">
-            <!-- User to replace src="" with actual image paths -->
-            <div class="creative-tile">
-                <img src="https://placehold.co/400x400/161616/555555?text=Brand+Design" alt="Brand Design"
-                    onerror="this.style.display='none';">
-                <span>Brand Design</span>
-            </div>
-            <div class="creative-tile">
-                <img src="https://placehold.co/400x400/161616/555555?text=Photo+Editing" alt="Photo Editing"
-                    onerror="this.style.display='none';">
-                <span>Photo Editing</span>
-            </div>
-            <div class="creative-tile">
-                <img src="https://placehold.co/400x400/161616/555555?text=BI+Dashboards" alt="BI Dashboards"
-                    onerror="this.style.display='none';">
-                <span>BI Dashboards</span>
-            </div>
-            <div class="creative-tile">
-                <img src="https://placehold.co/400x400/161616/555555?text=Social+Media" alt="Social Media"
-                    onerror="this.style.display='none';">
-                <span>Social Media</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 6 — TRAVEL BANNER -->
-    <section class="travel-banner hidden" id="travel">
-        <div class="travel-content">
-            <div class="travel-text">
-                <div class="travel-eyebrow display-text uppercase">TRAVEL CONSULTING</div>
-                <h2 class="travel-title display-text uppercase">ADHVAN CRAFTED JOURNEYS</h2>
-                <p class="travel-subtitle inter">US · UK · Schengen visa advisory. Custom packages & itineraries.</p>
-                <div class="travel-tags inter">
-                    <span class="travel-tag uppercase">Domestic</span>
-                    <span class="travel-tag uppercase">International</span>
-                    <span class="travel-tag uppercase">Visa</span>
-                    <span class="travel-tag uppercase">Corporate</span>
+        <div class="creatives-grid">
+            <a href="expresso.html" class="creative-card">
+                <div class="creative-img-wrapper">
+                    <img src="Images/LAUNDRY SERVICES.jpg" alt="Expresso Life Solutions">
                 </div>
-            </div>
-            <button class="travel-btn display-text uppercase"
-                onclick="window.location.href='mailto:thasleemsf@gmail.com'">ENQUIRE →</button>
+                <div class="creative-info">
+                    <h3 class="creative-title display-text uppercase">EXPRESSO LIFE SOLUTIONS</h3>
+                    <div class="creative-link inter">View all &rarr;</div>
+                </div>
+            </a>
+
+            <a href="adhvan.html" class="creative-card">
+                <div class="creative-img-wrapper">
+                    <img src="Images/adhvan Insta Dp.jpg" alt="Adhvan Crafted Journeys">
+                </div>
+                <div class="creative-info">
+                    <h3 class="creative-title display-text uppercase">ADHVAN CRAFTED JOURNEYS</h3>
+                    <div class="creative-link inter">View all &rarr;</div>
+                </div>
+            </a>
+
+            <a href="boxbrownie.html" class="creative-card">
+                <div class="creative-img-wrapper">
+                    <img src="Images/box.jpg" alt="Box Brownie">
+                </div>
+                <div class="creative-info">
+                    <h3 class="creative-title display-text uppercase">BOX BROWINE</h3>
+                    <div class="creative-link inter">View all &rarr;</div>
+                </div>
+            </a>
+
+            <a href="others.html" class="creative-card">
+                <div class="creative-img-wrapper">
+                    <img src="https://placehold.co/400x600/161616/555555?text=Others" alt="Others">
+                </div>
+                <div class="creative-info">
+                    <h3 class="creative-title display-text uppercase">OTHERS</h3>
+                    <div class="creative-link inter">View all &rarr;</div>
+                </div>
+            </a>
         </div>
     </section>
+
 
     <!-- SECTION 7 — SKILLS -->
     <section class="section hidden" id="skills">
@@ -1239,7 +1267,7 @@
         <div class="inter">© 2025 Mohammed Thasleem</div>
         <div class="inter">Chennai · India</div>
         <div class="footer-right display-text uppercase">
-            Data · Design · <span class="travel">Travel</span>
+            <span class="data">Data</span> · <span class="design">Design</span> · <span class="travel">Travel</span>
         </div>
     </footer>
 
